@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <G2A_Pay>
+            <version>0.2.3</version>
+        </G2A_Pay>
+    </modules>
+
+    <global>
+        <blocks>
+            <g2apay>
+                <class>G2A_Pay_Block</class>
+            </g2apay>
+        </blocks>
+
+        <models>
+            <g2apay>
+                <class>G2A_Pay_Model</class>
+            </g2apay>
+        </models>
+
+        <helpers>
+            <g2apay>
+                <class>G2A_Pay_Helper</class>
+            </g2apay>
+        </helpers>
+
+        <resources>
+            <g2apay_setup>
+                <setup>
+                    <module>G2A_Pay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </g2apay_setup>
+            <g2apay_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </g2apay_write>
+            <g2apay_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </g2apay_read>
+        </resources>
+    </global>
+
+    <default>
+        <payment>
+            <g2apay>
+                <active>0</active>
+                <model>g2apay/method_gateway</model>
+                <order_status>processing</order_status>
+                <title>G2A Pay</title>
+                <allowspecific>0</allowspecific>
+            </g2apay>
+        </payment>
+    </default>
+
+    <frontend>
+        <routers>
+            <g2apay>
+                <use>standard</use>
+                <args>
+                    <module>G2A_Pay</module>
+                    <frontName>g2apay</frontName>
+                </args>
+            </g2apay>
+        </routers>
+        <translate>
+            <modules>
+                <G2A_Pay>
+                    <files>
+                        <default>G2A_Pay.csv</default>
+                    </files>
+                </G2A_Pay>
+            </modules>
+        </translate>
+    </frontend>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <G2A_Pay>
+                    <files>
+                        <default>G2A_Pay.csv</default>
+                    </files>
+                </G2A_Pay>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>
